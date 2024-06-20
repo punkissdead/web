@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Регистрация</h1>
+        <form action="check.php" method="post" enctype="multipart/form-data" class="form">
+            <fieldset class="form-field">
+                <legend>Личная информация</legend>
+                <label for="surname" class="required">Фамилия*</label>
+                <input type="text" id="surname" name="surname" pattern="[А-ЯЁа-яё]+" title="Используйте только русские буквы" required>
+
+                <label for="name" class="required">Имя*</label>
+                <input type="text" id="name" name="name" pattern="[А-ЯЁа-яё]+" title="Используйте только русские буквы" required>
+
+                <label for="patronymic">Отчество</label>
+                <input type="text" id="patronymic" name="patronymic" pattern="[А-ЯЁа-яё]*" title="Используйте только русские буквы">
+                <div>
+                    <label class="required">Пол*</label>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Мужской</label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Женский</label>
+                </div>
+
+                <label for="eyeColor">Цвет глаз</label>
+                <input type="color" id="eyeColor" name="eyeColor">
+
+                <label for="birthDate">Дата рождения*</label>
+                <input type="date" id="birthDate" name="birthDate" required>
+
+                <label for="age">Возраст</label>
+                <input type="number" id="age" name="age" min="18" max="100" required>
+            </fieldset>
+            <fieldset class="form-field">
+                <legend>Контактная информация</legend>
+                <label for="birthPlace">Место рождения*</label>
+                <select id="birthPlace" name="birthPlace" required>
+                    <option value="" disabled selected>Выберите место рождения</option>
+                    <option value="moscow">Москва</option>
+                    <option value="saint-petersburg">Санкт-Петербург</option>
+                    <option value="novosibirsk">Новосибирск</option>
+                    <!-- Добавьте другие варианты по необходимости -->
+                </select>
+
+                <label for="zipCode">Индекс*</label>
+                <input type="text" id="zipCode" name="zipCode" required>
+
+                <label for="address" >Домашний адрес*</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="regDate">Дата регистрации</label>
+                <input type="date" id="regDate" name="regDate" required>
+
+                <label for="phone">Номер телефона*</label>
+                <input type="text" id="phone" name="phone" pattern="^\+7-\d{3}-\d{3}-\d{2}-\d{2}$" placeholder="+7-xxx-xxx-xx-xx" title="Введите номер в формате +7-ххх-ххх-хх-хх" required>
+
+                <label for="email">E-mail*</label>
+                <input type="email" id="email" name="email" required>
+            </fieldset>
+            <fieldset class="form-field">
+                <legend>Общая информация</legend>
+                <label for="passportScreenshot">Скриншот первой страницы паспорта (только .jpeg)*</label>
+                <input type="file" id="passportScreenshot" name="passportScreenshot" accept="image/jpeg" required>
+
+                <label for="source">Откуда вы узнали о магазине?</label>
+                <select id="source" name="source[]" multiple>
+                    <option value="friends">Друзья</option>
+                    <option value="internet">Интернет</option>
+                    <option value="advertising">Реклама</option>
+                    <option value="other">Другое</option>
+                </select>
+
+                <label>Согласие на обработку и хранение персональных данных*</label>
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">Я согласен(на) на обработку и хранение моих персональных данных</label>
+            </fieldset>
+            <div>
+                <button type="submit">Отправить</button>
+                <button type="reset">Очистить</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
